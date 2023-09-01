@@ -9,4 +9,22 @@
 
 void print_binary(unsigned long int n);
 {
+	int t;
+	counting = 0;
 
+	for (t = 20; t >=0; t--)
+	{
+		curr = n >> t;
+		
+		if(curr & 1)
+		{
+			_putchar('1');
+			counting++;
+		}
+		else if(counting)
+			_putchar('0');
+	}
+
+	if (!counting)
+		_putchar('0');
+}
