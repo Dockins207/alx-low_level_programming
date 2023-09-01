@@ -8,7 +8,7 @@
  * or 0 if not.
  * exit if b is NULL.
  */
-unsigned int binary_to_uint(const char *b)
+unsigned int binary_to_uint(const char *b);
 {
 	unsigned int Number = 0;
 	int y = 0;
