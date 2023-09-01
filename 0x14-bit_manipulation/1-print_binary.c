@@ -7,15 +7,15 @@
  *Return: binary representation of a number.
  */
 
-void print_binary(unsigned long int n);
+void print_binary(unsigned long int n)
 {
 	int t;
 
-	counting = 0;
+	int counting = 0;
 
 	for (t = 20; t >= 0; t--)
 	{
-		curr = n >> t;
+		int curr = n >> t;
 
 		if (curr & 1)
 		{
