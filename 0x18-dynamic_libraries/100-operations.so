@@ -1,0 +1,33 @@
+#include "main.h"
+#include <Python.h>
+
+int add_numbers(int a, int b) {
+    return a + b;
+}
+
+static PyObject* py_add_numbers(PyObject* self, PyObject* args) {
+    int a, b;
+    if (!PyArg_ParseTuple(args, "ii", &a, &b)) {
+        return NULL;
+    }
+    
+    int result = add_numbers(a, b);
+    return PyLong_FromLong(result);
+}
+
+static PyMethodDef mylibrary_methods[] = {
+    {"add_numbers", py_add_numbers, METH_VARARGS, "Add two numbers"},
+    {NULL, NULL, 0, NULL}
+};
+
+static struct PyModuleDef mylibrary_module = {
+    PyModuleDef_HEAD_INIT,
+    "mylibrary",
+    NULL,
+    -1,
+    mylibrary_methods
+};
+
+PyMODINIT_FUNC PyInit_mylibrary(void) {
+    return PyModule_Create(&mylibrary_module);
+}
